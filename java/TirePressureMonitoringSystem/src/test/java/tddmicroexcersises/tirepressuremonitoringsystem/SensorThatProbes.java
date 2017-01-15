@@ -5,11 +5,12 @@ import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 /**
  * Created by pj on 14/01/17.
  */
-class MockSensor extends Sensor {
+@SuppressWarnings("DefaultFileTemplate")
+class SensorThatProbes extends Sensor {
 
     private final double value;
 
-    public MockSensor(double _value) {
+    public SensorThatProbes(double _value) {
         value = _value;
     }
 
