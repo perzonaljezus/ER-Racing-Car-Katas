@@ -35,13 +35,4 @@ public class AlarmTest {
         alarm.check();
         assertFalse(alarm.isAlarmOn());
     }
-
-    @Test
-    public void collaborateWithAnInjectedSensor() {
-        double normalPressure = (Alarm.highPressureThreshold + Alarm.lowPressureThreshold)/2;
-        Sensor sensor = new MockSensor(normalPressure);
-        Alarm alarm = new Alarm(sensor);
-        alarm.check();
-        assertFalse(alarm.isAlarmOn());
-    }
 }
