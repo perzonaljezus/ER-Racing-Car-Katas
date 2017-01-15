@@ -11,8 +11,9 @@ import static org.junit.Assert.assertTrue;
 public class AlarmTest {
 
     @Test
-    public void testAlarm() {
-        Alarm alarm = new Alarm();
+    public void testAlarmIsOnWhenPressureIsTooHigh() {
+        int tooHightPressure = 22; // Alarm.highPressureThreshold+1
+        Alarm alarm = new Alarm(tooHightPressure);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
