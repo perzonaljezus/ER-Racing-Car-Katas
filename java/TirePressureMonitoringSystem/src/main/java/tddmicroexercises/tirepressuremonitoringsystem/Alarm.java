@@ -13,14 +13,14 @@ public class Alarm
     {
         double psiPressureValue = probeValue();
 
-        if (isNotInSafetyRange(psiPressureValue))
+        if (!isInSafetyRange(psiPressureValue))
         {
             alarmOn = true;
         }
     }
 
-    private boolean isNotInSafetyRange(double psiPressureValue) {
-        return psiPressureValue < lowPressureThreshold || highPressureThreshold < psiPressureValue;
+    private boolean isInSafetyRange(double psiPressureValue) {
+        return (lowPressureThreshold <= psiPressureValue) && (psiPressureValue <= highPressureThreshold);
     }
 
     public double probeValue() {
