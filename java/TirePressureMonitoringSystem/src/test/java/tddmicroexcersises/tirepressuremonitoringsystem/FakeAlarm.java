@@ -8,13 +8,13 @@ import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
 public class FakeAlarm extends Alarm {
     private double pressureValue;
 
-    public FakeAlarm(double pressureValue) {
+    public FakeAlarm(double samplePressure) {
         super();
 
-        this.pressureValue = pressureValue;
+        this.pressureValue = samplePressure;
     }
 
-    public double probeValue() {
+    public double probePressure() {
         return pressureValue;
     }
 }
