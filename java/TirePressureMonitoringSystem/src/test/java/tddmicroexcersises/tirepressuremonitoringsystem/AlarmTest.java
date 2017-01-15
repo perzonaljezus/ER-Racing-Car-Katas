@@ -14,21 +14,24 @@ public class AlarmTest {
     @Test
     public void testAlarmIsOnWhenPressureIsTooHigh() {
         double tooHighPressure = Alarm.highPressureThreshold +1;
-        FakeAlarm alarm = new FakeAlarm(tooHighPressure);
+        Sensor sensor = new MockSensor(tooHighPressure);
+        Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
     @Test
     public void testAlarmIsOnWhenPressureIsTooLow() {
         double tooLowPressure = Alarm.lowPressureThreshold -1;
-        FakeAlarm alarm = new FakeAlarm(tooLowPressure);
+        Sensor sensor = new MockSensor(tooLowPressure);
+        Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
     @Test
     public void testAlarmIsOnWhenPressureIsNormal() {
         double normalPressure = (Alarm.highPressureThreshold + Alarm.lowPressureThreshold)/2;
-        FakeAlarm alarm = new FakeAlarm(normalPressure);
+        Sensor sensor = new MockSensor(normalPressure);
+        Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertFalse(alarm.isAlarmOn());
     }
