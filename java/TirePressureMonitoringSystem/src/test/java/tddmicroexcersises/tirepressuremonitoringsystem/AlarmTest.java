@@ -13,6 +13,7 @@ public class AlarmTest {
     @Test
     public void testAlarm() {
         Alarm alarm = new Alarm();
+        alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
 }
