@@ -3,7 +3,8 @@ package tddmicroexercises.tirepressuremonitoringsystem;
 /**
  * Created by pj on 15/01/17.
  */
-public class SafetyRange {
+@SuppressWarnings("DefaultFileTemplate")
+class SafetyRange {
     private final double lowPressureThreshold;
     private final double highPressureThreshold;
 
