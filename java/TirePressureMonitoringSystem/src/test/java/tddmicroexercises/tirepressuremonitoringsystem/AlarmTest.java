@@ -1,8 +1,6 @@
-package tddmicroexcersises.tirepressuremonitoringsystem;
+package tddmicroexercises.tirepressuremonitoringsystem;
 
 import org.junit.Test;
-import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
-import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
