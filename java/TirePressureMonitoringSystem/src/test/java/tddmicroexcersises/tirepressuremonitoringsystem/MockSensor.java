@@ -7,7 +7,7 @@ import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
  */
 class MockSensor extends Sensor {
 
-    final double value;
+    private final double value;
 
     public MockSensor(double _value) {
         value = _value;
