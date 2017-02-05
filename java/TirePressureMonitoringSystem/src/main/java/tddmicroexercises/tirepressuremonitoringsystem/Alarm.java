@@ -5,11 +5,11 @@ class Alarm
     public static final double lowPressureThreshold = 17;
     public static final double highPressureThreshold = 21;
     private final SafetyRange safetyRange;
-    private final Sensor sensor;
+    private final ISensor sensor;
 
     private boolean alarmOn;
 
-    public Alarm(Sensor sensor, SafetyRange safetyRange) {
+    public Alarm(ISensor sensor, SafetyRange safetyRange) {
         this.sensor = sensor;
         this.alarmOn = false;
         this.safetyRange = safetyRange;
