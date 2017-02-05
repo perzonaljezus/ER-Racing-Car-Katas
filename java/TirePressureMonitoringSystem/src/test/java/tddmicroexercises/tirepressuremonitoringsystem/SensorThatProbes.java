@@ -4,7 +4,7 @@ package tddmicroexercises.tirepressuremonitoringsystem;
  * Created by pj on 14/01/17.
  */
 @SuppressWarnings("DefaultFileTemplate")
-class SensorThatProbes extends Sensor {
+class SensorThatProbes extends TelemetryPressureSensor {
 
     private final double value;
 
