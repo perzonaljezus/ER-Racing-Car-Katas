@@ -21,7 +21,7 @@ public class AlarmTest {
     @Test
     public void testAlarmIsOnWhenPressureIsTooHigh() {
         double tooHighPressure = Alarm.highPressureThreshold +1;
-        Sensor sensor = new SensorThatProbes(tooHighPressure);
+        TelemetryPressureSensor sensor = new SensorThatProbes(tooHighPressure);
         Alarm alarm = new Alarm(sensor, safetyRange);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
