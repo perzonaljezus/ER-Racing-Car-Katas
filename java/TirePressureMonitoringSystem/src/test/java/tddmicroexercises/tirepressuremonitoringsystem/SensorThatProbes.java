@@ -13,7 +13,7 @@ class SensorThatProbes extends TelemetryPressureSensor {
     }
 
     @Override
-    public double popNextPressurePsiValue() {
+    public double probe() {
         return value;
     }
 

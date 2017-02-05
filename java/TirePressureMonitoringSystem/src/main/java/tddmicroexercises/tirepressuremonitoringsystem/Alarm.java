@@ -17,7 +17,7 @@ class Alarm
 
     public void check()
     {
-        double psiSamplePressure = probePressure();
+        double psiSamplePressure = sensor.probe();
 
         if (!safetyRange.isInSafetyRange(psiSamplePressure))
         {
@@ -25,10 +25,6 @@ class Alarm
         }
     }
 
-
-    private double probePressure() {
-        return sensor.popNextPressurePsiValue();
-    }
 
     public boolean isAlarmOn()
     {
