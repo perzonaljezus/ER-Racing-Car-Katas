@@ -23,9 +23,15 @@ public class AlarmTest {
         alarm = anAlarm().
                 usingSensor(new SensorThatProbes(Alarm.highPressureThreshold +1)).
                 andWithSafetyRange(safetyRange).
-                build();        alarm.check();
+                build();
+        alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
+
+    private Alarm anAlarm() {
+        return new Alarm(sensor, safetyRange);
+    }
+
     @Test
     public void testAlarmIsOnWhenPressureIsTooLow() {
         double tooLowPressure = Alarm.lowPressureThreshold -1;
