@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static tddmicroexercises.tirepressuremonitoringsystem.AlarmBuilder.anAlarm;
+
 /**
  * Created by pj on 15/01/17.
  */
@@ -12,6 +14,8 @@ import static org.junit.Assert.assertTrue;
 public class AlarmTest {
 
     private static SafetyRange safetyRange;
+
+    private Alarm alarm;
 
     @Before
     public void setUp() throws Exception {
@@ -26,10 +30,6 @@ public class AlarmTest {
                 build();
         alarm.check();
         assertTrue(alarm.isAlarmOn());
-    }
-
-    private Alarm anAlarm() {
-        return new Alarm(sensor, safetyRange);
     }
 
     @Test
