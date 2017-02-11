@@ -10,11 +10,11 @@ import static org.testng.Assert.assertEquals;
  */
 public class TelemetryDiagnosticControlsTest {
 
-    private static MockTelemetryDiagnosticControls controls;
+    private static TelemetryDiagnosticControls controls;
 
     @BeforeMethod
     public void setUp() throws Exception {
-        controls = new MockTelemetryDiagnosticControls();
+        controls = new TelemetryDiagnosticControls();
     }
 
     /**

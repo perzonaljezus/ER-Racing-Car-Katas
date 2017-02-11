@@ -4,12 +4,12 @@ public class TelemetryDiagnosticControls
 {
     private static final String DIAGNOSTIC_CHANNEL_CONNECTION_STRING = "*111#";
 
-    private final TelemetryClient telemetryClient;
+    private final MockTelemetryClient telemetryClient;
     private String diagnosticInfo = "";
 
     public TelemetryDiagnosticControls()
     {
-        telemetryClient = new TelemetryClient();
+        telemetryClient = new MockTelemetryClient();
     }
 
     public String getDiagnosticInfo()
@@ -42,5 +42,26 @@ public class TelemetryDiagnosticControls
 
         telemetryClient.send(TelemetryClient.DIAGNOSTIC_MESSAGE);
         diagnosticInfo = telemetryClient.receive();
+    }
+
+    private class MockTelemetryClient extends TelemetryClient {
+
+        private boolean onlineStatus;
+
+        @Override
+        public boolean getOnlineStatus() {
+            return onlineStatus;
+        }
+
+        @Override
+        public void connect(String telemetryServerConnectionString) {
+            if (telemetryServerConnectionString == null || "".equals(telemetryServerConnectionString))
+            {
+                throw new IllegalArgumentException();
+            }
+
+            onlineStatus = true; // always success
+        }
+
     }
 }
