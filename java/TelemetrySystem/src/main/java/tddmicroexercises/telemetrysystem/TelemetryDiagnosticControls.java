@@ -7,9 +7,9 @@ public class TelemetryDiagnosticControls
     private final MockTelemetryClient telemetryClient;
     private String diagnosticInfo = "";
 
-    public TelemetryDiagnosticControls()
+    public TelemetryDiagnosticControls(MockTelemetryClient tc)
     {
-        telemetryClient = new MockTelemetryClient();
+        telemetryClient = tc;
     }
 
     public String getDiagnosticInfo()
