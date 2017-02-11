@@ -14,7 +14,7 @@ public class TelemetryDiagnosticControlsTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        controls = new TelemetryDiagnosticControls();
+        controls = new MockTelemetryDiagnosticControls();
     }
 
     /**
