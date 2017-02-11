@@ -44,24 +44,4 @@ public class TelemetryDiagnosticControls
         diagnosticInfo = telemetryClient.receive();
     }
 
-    private class MockTelemetryClient extends TelemetryClient {
-
-        private boolean onlineStatus;
-
-        @Override
-        public boolean getOnlineStatus() {
-            return onlineStatus;
-        }
-
-        @Override
-        public void connect(String telemetryServerConnectionString) {
-            if (telemetryServerConnectionString == null || "".equals(telemetryServerConnectionString))
-            {
-                throw new IllegalArgumentException();
-            }
-
-            onlineStatus = true; // always success
-        }
-
-    }
 }
