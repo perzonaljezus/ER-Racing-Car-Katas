@@ -3,7 +3,7 @@ package tddmicroexercises.telemetrysystem;
 /**
  * Created by pj on 11/02/17.
  */
-class MockTelemetryClient extends TelemetryClient {
+class MockTelemetryClient extends TelemetryClient implements ITelemetryClient {
 
     private boolean onlineStatus;
 

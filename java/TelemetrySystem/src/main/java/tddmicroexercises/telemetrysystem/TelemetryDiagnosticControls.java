@@ -4,10 +4,10 @@ public class TelemetryDiagnosticControls
 {
     private static final String DIAGNOSTIC_CHANNEL_CONNECTION_STRING = "*111#";
 
-    private final MockTelemetryClient telemetryClient;
+    private final ITelemetryClient telemetryClient;
     private String diagnosticInfo = "";
 
-    public TelemetryDiagnosticControls(MockTelemetryClient tc)
+    public TelemetryDiagnosticControls(ITelemetryClient tc)
     {
         telemetryClient = tc;
     }
