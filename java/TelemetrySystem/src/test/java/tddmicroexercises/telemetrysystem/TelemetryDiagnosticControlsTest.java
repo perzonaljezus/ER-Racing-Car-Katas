@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
  */
 public class TelemetryDiagnosticControlsTest {
 
-    private static TelemetryDiagnosticControls controls;
+    private static MockTelemetryDiagnosticControls controls;
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -18,7 +18,7 @@ public class TelemetryDiagnosticControlsTest {
     }
 
     /**
-     * Method: setDiagnosticInfo()
+     * Method: setDiagnosticInfo(String diagnosticInfo)
      */
     @Test
     public void testSetDiagnosticInfo() throws Exception {
@@ -59,10 +59,10 @@ public class TelemetryDiagnosticControlsTest {
     }
 
     /**
-     * Method: getDiagnosticInfo(String diagnosticInfo)
+     * Method: getDiagnosticInfo()
      */
     @Test
-    public void testgetDiagnosticInfo() throws Exception {
+    public void testGetDiagnosticInfo() throws Exception {
         String expected = "";
         String actual = controls.getDiagnosticInfo();
         assertEquals(expected, actual);
@@ -93,5 +93,4 @@ public class TelemetryDiagnosticControlsTest {
         assertEquals(expected, actual);
     }
 
-
-} 
+}
