@@ -12,6 +12,7 @@ public class Alarm
     private boolean alarmOn = false;
 
     public Alarm(Sensor sensor, SafetyRange safetyRange) {
+
         this.sensor = sensor;
         this.safetyRange = safetyRange;
     }
