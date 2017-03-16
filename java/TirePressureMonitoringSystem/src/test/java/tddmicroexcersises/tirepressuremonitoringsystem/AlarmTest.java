@@ -38,12 +38,6 @@ public class AlarmTest {
     private class TestableAlarm extends Alarm {
         private double mockPressure;
 
-        public TestableAlarm(double mockPressure) {
-            super();
-
-            this.mockPressure = mockPressure;
-        }
-
         public TestableAlarm(Sensor sensor) {
             super(sensor);
         }
