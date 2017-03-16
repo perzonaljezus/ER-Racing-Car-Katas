@@ -44,6 +44,10 @@ public class AlarmTest {
             this.mockPressure = mockPressure;
         }
 
+        public TestableAlarm(Sensor sensor) {
+            super(sensor);
+        }
+
         protected double pressureValue() {
             return mockPressure ;
         }
