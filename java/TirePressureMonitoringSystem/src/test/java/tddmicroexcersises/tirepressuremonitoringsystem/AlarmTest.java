@@ -20,7 +20,13 @@ public class AlarmTest {
     }
     @Test
     public void testAlarmIsOnWhenPressureIsTooHigh() {
-        Alarm alarm = new TestableAlarm(TestableAlarm.highPressureThreshold+1);
+        Alarm alarm = new TestableAlarm(TestableAlarm.highPressureThreshold +1);
+        alarm.check();
+        assertTrue(alarm.isAlarmOn());
+    }
+    @Test
+    public void testAlarmIsOnWhenPressureIsTooLow() {
+        Alarm alarm = new TestableAlarm(TestableAlarm.lowPressureThreshold -1);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
