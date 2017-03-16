@@ -1,49 +1,45 @@
 package tddmicroexcersises.tirepressuremonitoringsystem;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
 import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.BDDMockito.given;
 
 /**
  * Created by pj on 15/01/17.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class AlarmTest {
-    Sensor sensor;
+    @Mock
+    private Sensor sensor;
 
 
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
-        double okPressure = (TestableAlarm.highPressureThreshold+ TestableAlarm.lowPressureThreshold)/2;
-        sensor = new Sensor();
-        Alarm alarm = new TestableAlarm(sensor);
+        double okPressure = (Alarm.highPressureThreshold + Alarm.lowPressureThreshold)/2;
+        given(sensor.popNextPressurePsiValue()).willReturn(okPressure);
+        Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertFalse(alarm.isAlarmOn());
     }
     @Test
     public void testAlarmIsOnWhenPressureIsTooHigh() {
-        Alarm alarm = new TestableAlarm(TestableAlarm.highPressureThreshold +1);
+        given(sensor.popNextPressurePsiValue()).willReturn(Alarm.highPressureThreshold +1);
+        Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
     @Test
     public void testAlarmIsOnWhenPressureIsTooLow() {
-        Alarm alarm = new TestableAlarm(TestableAlarm.lowPressureThreshold -1);
+        given(sensor.popNextPressurePsiValue()).willReturn(Alarm.lowPressureThreshold -1);
+        Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
-    }
-
-    private class TestableAlarm extends Alarm {
-        private double mockPressure;
-
-        public TestableAlarm(Sensor sensor) {
-            super(sensor);
-        }
-
-        protected double pressureValue() {
-            return mockPressure ;
-        }
     }
 }
