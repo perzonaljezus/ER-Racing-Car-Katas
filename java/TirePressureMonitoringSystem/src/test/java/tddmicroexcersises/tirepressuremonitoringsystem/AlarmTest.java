@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
+import tddmicroexercises.tirepressuremonitoringsystem.SafetyRange;
 import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 
 import static org.junit.Assert.assertFalse;
@@ -22,7 +23,7 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
-        double okPressure = (Alarm.highPressureThreshold + Alarm.lowPressureThreshold)/2;
+        double okPressure = (SafetyRange.highPressureThreshold + SafetyRange.lowPressureThreshold)/2;
         given(sensor.popNextPressurePsiValue()).willReturn(okPressure);
         Alarm alarm = new Alarm(sensor);
         alarm.check();
@@ -30,28 +31,28 @@ public class AlarmTest {
     }
     @Test
     public void testAlarmIsOnWhenPressureIsTooHigh() {
-        given(sensor.popNextPressurePsiValue()).willReturn(Alarm.highPressureThreshold +1);
+        given(sensor.popNextPressurePsiValue()).willReturn(SafetyRange.highPressureThreshold +1);
         Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
     @Test
     public void testAlarmIsOnWhenPressureIsTooLow() {
-        given(sensor.popNextPressurePsiValue()).willReturn(Alarm.lowPressureThreshold -1);
+        given(sensor.popNextPressurePsiValue()).willReturn(SafetyRange.lowPressureThreshold -1);
         Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
     @Test
     public void testAlarmIsOffWhenPressureIsLowLimit() {
-        given(sensor.popNextPressurePsiValue()).willReturn(Alarm.lowPressureThreshold);
+        given(sensor.popNextPressurePsiValue()).willReturn(SafetyRange.lowPressureThreshold);
         Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertFalse(alarm.isAlarmOn());
     }
     @Test
     public void testAlarmIsOffWhenPressureIsHighLimit() {
-        given(sensor.popNextPressurePsiValue()).willReturn(Alarm.highPressureThreshold);
+        given(sensor.popNextPressurePsiValue()).willReturn(SafetyRange.highPressureThreshold);
         Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertFalse(alarm.isAlarmOn());

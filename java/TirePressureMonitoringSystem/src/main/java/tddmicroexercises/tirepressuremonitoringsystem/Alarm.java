@@ -2,16 +2,15 @@ package tddmicroexercises.tirepressuremonitoringsystem;
 
 public class Alarm
 {
-    public static double lowPressureThreshold = 17;
-    public static double highPressureThreshold = 21;
 
+    private final SafetyRange safetyRange;
     private Sensor sensor;
 
     private boolean alarmOn = false;
 
     public Alarm(Sensor sensor) {
         this.sensor = sensor;
-        this.safetyRange = new SafetyRange(lowPressureThreshold, highPressureThreshold);
+        this.safetyRange = new SafetyRange(SafetyRange.lowPressureThreshold, SafetyRange.highPressureThreshold);
     }
 
     public void check()
@@ -25,7 +24,7 @@ public class Alarm
     }
 
     protected boolean isInSafetyRange(double psiPressureValue) {
-        return lowPressureThreshold <= psiPressureValue && psiPressureValue <= highPressureThreshold;
+        return SafetyRange.lowPressureThreshold <= psiPressureValue && psiPressureValue <= SafetyRange.highPressureThreshold;
     }
 
     public boolean isAlarmOn()
