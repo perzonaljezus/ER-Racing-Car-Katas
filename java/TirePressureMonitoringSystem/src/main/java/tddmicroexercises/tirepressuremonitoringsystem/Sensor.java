@@ -6,7 +6,7 @@ public class Sensor
 {
     public static final double OFFSET = 16;
 
-    public double probe()
+    public double popNextPressurePsiValue()
     {
         double pressureTelemetryValue;
         pressureTelemetryValue = samplePressure();
