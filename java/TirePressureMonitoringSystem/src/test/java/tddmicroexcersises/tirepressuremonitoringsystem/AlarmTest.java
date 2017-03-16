@@ -42,4 +42,20 @@ public class AlarmTest {
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
+    @Test
+    public void testAlarmIsOffWhenPressureIsLowLimit() {
+        given(sensor.popNextPressurePsiValue()).willReturn(Alarm.lowPressureThreshold);
+        Alarm alarm = new Alarm(sensor);
+        alarm.check();
+        assertFalse(alarm.isAlarmOn());
+    }
+    @Test
+    public void testAlarmIsOffWhenPressureIsHighLimit() {
+        given(sensor.popNextPressurePsiValue()).willReturn(Alarm.highPressureThreshold);
+        Alarm alarm = new Alarm(sensor);
+        alarm.check();
+        assertFalse(alarm.isAlarmOn());
+    }
+
+
 }
