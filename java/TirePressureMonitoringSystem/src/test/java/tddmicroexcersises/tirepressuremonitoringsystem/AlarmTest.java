@@ -2,6 +2,7 @@ package tddmicroexcersises.tirepressuremonitoringsystem;
 
 import org.junit.Test;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
+import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -10,11 +11,14 @@ import static org.junit.Assert.assertTrue;
  * Created by pj on 15/01/17.
  */
 public class AlarmTest {
+    Sensor sensor;
+
 
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
         double okPressure = (TestableAlarm.highPressureThreshold+ TestableAlarm.lowPressureThreshold)/2;
-        Alarm alarm = new TestableAlarm(okPressure);
+        sensor = new Sensor();
+        Alarm alarm = new TestableAlarm(sensor);
         alarm.check();
         assertFalse(alarm.isAlarmOn());
     }
