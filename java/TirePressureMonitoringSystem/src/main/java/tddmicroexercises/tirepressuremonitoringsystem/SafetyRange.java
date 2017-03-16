@@ -11,4 +11,8 @@ public class SafetyRange {
         this.lowPressureThreshold = lowPressureThreshold;
         this.highPressureThreshold = highPressureThreshold;
     }
+
+    protected boolean isInSafetyRange(double psiPressureValue) {
+        return lowPressureThreshold <= psiPressureValue && psiPressureValue <= highPressureThreshold;
+    }
 }
