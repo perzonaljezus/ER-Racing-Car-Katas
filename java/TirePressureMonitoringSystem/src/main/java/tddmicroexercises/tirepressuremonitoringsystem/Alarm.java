@@ -11,6 +11,7 @@ public class Alarm
 
     public Alarm(Sensor sensor) {
         this.sensor = sensor;
+        this.safetyRange = new SafetyRange(lowPressureThreshold, highPressureThreshold);
     }
 
     public void check()
