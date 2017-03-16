@@ -17,14 +17,14 @@ public class Alarm
     {
         double psiPressureValue = sensor.popNextPressurePsiValue();
 
-        if (isNotInSafetyRange(psiPressureValue))
+        if (! isInSafetyRange(psiPressureValue))
         {
             alarmOn = true;
         }
     }
 
-    protected boolean isNotInSafetyRange(double psiPressureValue) {
-        return psiPressureValue < lowPressureThreshold || highPressureThreshold < psiPressureValue;
+    protected boolean isInSafetyRange(double psiPressureValue) {
+        return lowPressureThreshold <= psiPressureValue && psiPressureValue <= highPressureThreshold;
     }
 
     public boolean isAlarmOn()
