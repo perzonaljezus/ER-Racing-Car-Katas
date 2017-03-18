@@ -1,5 +1,8 @@
 package tddmicroexercises.tirepressuremonitoringsystem;
 
+import tddmicroexercises.tirepressuremonitoringsystem.safetyrange.SafetyRange;
+import tddmicroexercises.tirepressuremonitoringsystem.sensor.ISensor;
+
 public class Alarm
 {
     private ISensor sensor;

@@ -1,4 +1,6 @@
-package tddmicroexercises.tirepressuremonitoringsystem;
+package tddmicroexercises.tirepressuremonitoringsystem.sensor;
+
+import tddmicroexercises.tirepressuremonitoringsystem.sensor.legacy.Sensor;
 
 public class SensorNormalTire extends Sensor implements ISensor {
     @Override

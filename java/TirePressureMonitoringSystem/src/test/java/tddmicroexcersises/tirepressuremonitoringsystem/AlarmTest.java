@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
-import tddmicroexercises.tirepressuremonitoringsystem.ISensor;
-import tddmicroexercises.tirepressuremonitoringsystem.SafetyRange;
+import tddmicroexercises.tirepressuremonitoringsystem.sensor.ISensor;
+import tddmicroexercises.tirepressuremonitoringsystem.safetyrange.SafetyRange;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;

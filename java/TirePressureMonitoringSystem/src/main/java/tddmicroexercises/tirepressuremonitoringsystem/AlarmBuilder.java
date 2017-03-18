@@ -1,5 +1,8 @@
 package tddmicroexercises.tirepressuremonitoringsystem;
 
+import tddmicroexercises.tirepressuremonitoringsystem.safetyrange.SafetyRange;
+import tddmicroexercises.tirepressuremonitoringsystem.sensor.ISensor;
+
 /**
  * Created by pj on 18/03/2017.
  */
