@@ -37,6 +37,11 @@ public class AlarmTest {
         alarm.check();
         assertFalse(alarm.isAlarmOn());
     }
+
+    private Alarm anAlarm() {
+        return new Alarm(sensor, safetyRange);
+    }
+
     @Test
     public void testAlarmIsOnWhenPressureIsTooHigh() {
         double pressure = safetyRange.highThreshold() + 1;
