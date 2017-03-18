@@ -8,7 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
 import tddmicroexercises.tirepressuremonitoringsystem.SafetyRange;
 import tddmicroexercises.tirepressuremonitoringsystem.SafetyRangeNormalTire;
-import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
+import tddmicroexercises.tirepressuremonitoringsystem.ISensor;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -20,7 +20,7 @@ import static org.mockito.BDDMockito.given;
 @RunWith(MockitoJUnitRunner.class)
 public class AlarmTestNormalTire {
     @Mock
-    private Sensor sensor;
+    private ISensor sensor;
     private SafetyRange safetyRange;
 
 

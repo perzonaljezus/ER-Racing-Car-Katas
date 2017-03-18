@@ -2,9 +2,9 @@ package tddmicroexercises.tirepressuremonitoringsystem;
 
 import java.util.Random;
 
-public class Sensor
+public class SensorWetTire implements ISensor
 {
-    public static final double OFFSET = 16;
+    public static final double OFFSET = 14;
 
     public double popNextPressurePsiValue()
     {
@@ -18,7 +18,7 @@ public class Sensor
     {
         // placeholder implementation that simulate a real sensor in a real tire
         Random basicRandomNumbersGenerator = new Random();
-        double pressureTelemetryValue = 6 * basicRandomNumbersGenerator.nextDouble() * basicRandomNumbersGenerator.nextDouble();
+        double pressureTelemetryValue = 10 * basicRandomNumbersGenerator.nextDouble() * basicRandomNumbersGenerator.nextDouble();
         return pressureTelemetryValue;
     }
 }
