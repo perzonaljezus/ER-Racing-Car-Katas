@@ -1,6 +1,6 @@
-package tddmicroexercises.tirepressuremonitoringsystem;
+package tddmicroexercises.tirepressuremonitoringsystem.sensor;
 
-import tddmicroexercises.tirepressuremonitoringsystem.legacy.Sensor;
+import tddmicroexercises.tirepressuremonitoringsystem.sensor.legacy.Sensor;
 
 /**
  * Created by pj on 18/03/2017.
