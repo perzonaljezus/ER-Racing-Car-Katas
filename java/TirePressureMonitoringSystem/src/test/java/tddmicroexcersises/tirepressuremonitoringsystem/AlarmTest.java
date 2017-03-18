@@ -11,8 +11,10 @@ import static org.junit.Assert.assertTrue;
 public class AlarmTest {
 
     @Test
-    public void testAlarm() {
-        Alarm alarm = new Alarm();
+    public void testAlarmIsOffWhenPressureIsOk() {
+        double okPressure = 20. ;
+        Sensor sensor = sensor(okPressure);
+        Alarm alarm = new Alarm(sensor);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
