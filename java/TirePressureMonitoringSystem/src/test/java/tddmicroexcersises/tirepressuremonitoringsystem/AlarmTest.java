@@ -34,7 +34,6 @@ public class AlarmTest {
                 usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
                 build();
-
         alarm.check();
         assertFalse(alarm.isAlarmOn());
     }
@@ -44,7 +43,10 @@ public class AlarmTest {
         double pressure = safetyRange.highThreshold() + 1;
         given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
-        Alarm alarm = new Alarm(sensor, safetyRange);
+        alarm = anAlarm().
+                usingSensor(sensor).
+                andWithSafetyRange(safetyRange).
+                build();
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
@@ -62,7 +64,10 @@ public class AlarmTest {
         double pressure = safetyRange.highThreshold();
         given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
-        Alarm alarm = new Alarm(sensor, safetyRange);
+        alarm = anAlarm().
+                usingSensor(sensor).
+                andWithSafetyRange(safetyRange).
+                build();
         alarm.check();
         assertFalse(alarm.isAlarmOn());
     }
@@ -71,7 +76,10 @@ public class AlarmTest {
         double pressure = safetyRange.lowThreshold();
         given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
-        Alarm alarm = new Alarm(sensor, safetyRange);
+        alarm = anAlarm().
+                usingSensor(sensor).
+                andWithSafetyRange(safetyRange).
+                build();
         alarm.check();
         assertFalse(alarm.isAlarmOn());
     }
