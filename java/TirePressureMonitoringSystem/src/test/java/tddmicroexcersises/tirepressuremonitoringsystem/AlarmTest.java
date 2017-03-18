@@ -40,8 +40,32 @@ public class AlarmTest {
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
+    @Test
+    public void testAlarmIsOnWhenPressureIsTooLow() {
+        double pressure = safetyRange.getLowPressureThreshold() - 1;
+        given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
-    // too low pressure
-    // pressure is exactly the low value, this allows us to understand the logic of Sensor i.e. whether the thresholds are inclusive or exclusive
-    // pressure is exactly the high value, dto.
+        Alarm alarm = new Alarm(sensor, safetyRange);
+        alarm.check();
+        assertTrue(alarm.isAlarmOn());
+    }
+    @Test
+    public void testAlarmIsOnWhenPressureIsExactlyHighThreshold() {
+        double pressure = safetyRange.getHighPressureThreshold();
+        given(sensor.popNextPressurePsiValue()).willReturn(pressure);
+
+        Alarm alarm = new Alarm(sensor, safetyRange);
+        alarm.check();
+        assertFalse(alarm.isAlarmOn());
+    }
+    @Test
+    public void testAlarmIsOnWhenPressureIsExactlyLowThreshold() {
+        double pressure = safetyRange.getLowPressureThreshold();
+        given(sensor.popNextPressurePsiValue()).willReturn(pressure);
+
+        Alarm alarm = new Alarm(sensor, safetyRange);
+        alarm.check();
+        assertFalse(alarm.isAlarmOn());
+    }
+
 }
