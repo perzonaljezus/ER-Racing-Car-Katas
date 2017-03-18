@@ -18,16 +18,19 @@ public class AlarmTest {
     @Mock
     private Sensor sensor;
 
+    @Mock
+    private SafetyRange safetyRange;
+
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
-        double okPressure = safetyRangeMidValue();
+        given(safetyRange.midValue()).willReturn(20.);
+        double okPressure = safetyRange.midValue();
+
         given(sensor.popNextPressurePsiValue()).willReturn(okPressure);
-        Alarm alarm = new Alarm(sensor);
+
+        Alarm alarm = new Alarm(sensor, safetyRange);
+
         alarm.check();
         assertFalse(alarm.isAlarmOn());
-    }
-
-    protected double safetyRangeMidValue() {
-        return (Alarm.highPressureThreshold + Alarm.lowPressureThreshold)/2;
     }
 }
