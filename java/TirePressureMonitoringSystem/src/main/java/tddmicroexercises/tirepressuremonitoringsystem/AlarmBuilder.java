@@ -22,4 +22,7 @@ public class AlarmBuilder {
         return this;
     }
 
+    public Alarm build() {
+        return new Alarm(sensor, safetyRange);
+    }
 }
