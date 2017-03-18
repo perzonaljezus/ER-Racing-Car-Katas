@@ -3,9 +3,9 @@ package tddmicroexercises.tirepressuremonitoringsystem.safetyrange;
 /**
  * Created by pj on 18/03/2017.
  */
-public class SafetyRange {
-    private final double lowPressureThreshold = 17. ;
-    private final double highPressureThreshold = 21. ;
+public class SafetyRangeWetTire {
+    private final double lowPressureThreshold = 15. ;
+    private final double highPressureThreshold = 25. ;
 
     public double midThreshold() {
         return (lowPressureThreshold + highPressureThreshold) / 2;

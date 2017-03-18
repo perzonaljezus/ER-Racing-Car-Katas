@@ -1,16 +1,16 @@
 package tddmicroexercises.tirepressuremonitoringsystem;
 
-import tddmicroexercises.tirepressuremonitoringsystem.safetyrange.SafetyRange;
+import tddmicroexercises.tirepressuremonitoringsystem.safetyrange.SafetyRangeNormalTire;
 import tddmicroexercises.tirepressuremonitoringsystem.sensor.ISensor;
 
 public class Alarm
 {
     private ISensor sensor;
-    private SafetyRange safetyRange;
+    private SafetyRangeNormalTire safetyRange;
 
     private boolean alarmOn = false;
 
-    public Alarm(ISensor sensor, SafetyRange safetyRange) {
+    public Alarm(ISensor sensor, SafetyRangeNormalTire safetyRange) {
         this.sensor = sensor;
         this.safetyRange = safetyRange;
     }
