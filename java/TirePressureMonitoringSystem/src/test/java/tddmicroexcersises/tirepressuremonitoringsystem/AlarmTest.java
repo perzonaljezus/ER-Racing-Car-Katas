@@ -20,7 +20,7 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
-        double okPressure = 20. ;
+        double okPressure = (Alarm.highPressureThreshold + Alarm.lowPressureThreshold)/2 ;
         given(sensor.popNextPressurePsiValue()).willReturn(okPressure);
         Alarm alarm = new Alarm(sensor);
         alarm.check();
