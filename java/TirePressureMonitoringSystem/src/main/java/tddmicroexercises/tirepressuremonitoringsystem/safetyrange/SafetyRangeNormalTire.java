@@ -3,7 +3,7 @@ package tddmicroexercises.tirepressuremonitoringsystem.safetyrange;
 /**
  * Created by pj on 18/03/2017.
  */
-public class SafetyRangeNormalTire {
+public class SafetyRangeNormalTire implements SafetyRange {
     private final double lowPressureThreshold = 17. ;
     private final double highPressureThreshold = 21. ;
 

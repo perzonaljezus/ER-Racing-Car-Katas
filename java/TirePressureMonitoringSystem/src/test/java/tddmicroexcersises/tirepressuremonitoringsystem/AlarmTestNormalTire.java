@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
+import tddmicroexercises.tirepressuremonitoringsystem.safetyrange.SafetyRange;
 import tddmicroexercises.tirepressuremonitoringsystem.sensor.ISensor;
 import tddmicroexercises.tirepressuremonitoringsystem.safetyrange.SafetyRangeNormalTire;
 
@@ -21,7 +22,7 @@ public class AlarmTestNormalTire {
     @Mock
     private ISensor sensor;
 
-    private SafetyRangeNormalTire safetyRange = new SafetyRangeNormalTire();
+    private SafetyRange safetyRange = new SafetyRangeNormalTire();
 
     private Alarm alarm;
 
