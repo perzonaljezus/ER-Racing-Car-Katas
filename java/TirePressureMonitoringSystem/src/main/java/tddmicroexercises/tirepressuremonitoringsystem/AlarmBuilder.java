@@ -20,7 +20,7 @@ public class AlarmBuilder {
         return this;
     }
 
-    public AlarmBuilder andWithSafetyRange(SafetyRangeNormalTire safetyRange) {
+    public AlarmBuilder andWithSafetyRange(SafetyRange safetyRange) {
         this.safetyRange = safetyRange;
         return this;
     }
