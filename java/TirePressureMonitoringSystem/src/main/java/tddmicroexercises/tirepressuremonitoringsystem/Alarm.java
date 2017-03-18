@@ -2,12 +2,12 @@ package tddmicroexercises.tirepressuremonitoringsystem;
 
 public class Alarm
 {
-    private Sensor sensor;
+    private ISensor sensor;
     private SafetyRange safetyRange;
 
     private boolean alarmOn = false;
 
-    public Alarm(Sensor sensor, SafetyRange safetyRange) {
+    public Alarm(ISensor sensor, SafetyRange safetyRange) {
         this.sensor = sensor;
         this.safetyRange = safetyRange;
     }

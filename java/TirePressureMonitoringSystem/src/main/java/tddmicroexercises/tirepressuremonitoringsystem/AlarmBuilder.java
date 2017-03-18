@@ -5,14 +5,14 @@ package tddmicroexercises.tirepressuremonitoringsystem;
  */
 public class AlarmBuilder {
 
-    private Sensor sensor;
+    private ISensor sensor;
     private SafetyRange safetyRange;
 
     public static AlarmBuilder anAlarm() {
         return new AlarmBuilder();
     }
 
-    public AlarmBuilder usingSensor(Sensor sensor) {
+    public AlarmBuilder usingSensor(ISensor sensor) {
         this.sensor = sensor;
         return this;
     }

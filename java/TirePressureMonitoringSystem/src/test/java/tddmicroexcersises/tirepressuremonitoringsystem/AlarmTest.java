@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
+import tddmicroexercises.tirepressuremonitoringsystem.ISensor;
 import tddmicroexercises.tirepressuremonitoringsystem.SafetyRange;
-import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
@@ -19,7 +19,7 @@ import static tddmicroexercises.tirepressuremonitoringsystem.AlarmBuilder.anAlar
 @RunWith(MockitoJUnitRunner.class)
 public class AlarmTest {
     @Mock
-    private Sensor sensor;
+    private ISensor sensor;
 
     private SafetyRange safetyRange = new SafetyRange();
 
@@ -55,7 +55,10 @@ public class AlarmTest {
         double pressure = safetyRange.lowThreshold() - 1;
         given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
-        Alarm alarm = new Alarm(sensor, safetyRange);
+        alarm = anAlarm().
+                usingSensor(sensor).
+                andWithSafetyRange(safetyRange).
+                build();
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
