@@ -22,12 +22,18 @@ public class AlarmTest {
 
     private SafetyRange safetyRange = new SafetyRange();
 
+    private Alarm alarm;
+
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
         double pressure = safetyRange.midThreshold();
         given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
-        Alarm alarm = new Alarm(sensor, safetyRange);
+        alarm = anAlarm().
+                usingSensor(sensor).
+                andWithSafetyRange(safetyRange).
+                build();
+
         alarm.check();
         assertFalse(alarm.isAlarmOn());
     }
