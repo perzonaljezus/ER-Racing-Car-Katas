@@ -1,4 +1,4 @@
-package tddmicroexercises.tirepressuremonitoringsystem.lib;
+package tddmicroexercises.tirepressuremonitoringsystem.legacy;
 
 import java.util.Random;
 
