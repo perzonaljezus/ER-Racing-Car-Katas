@@ -16,4 +16,10 @@ public class AlarmBuilder {
         this.sensor = sensor;
         return this;
     }
+
+    public AlarmBuilder andWithSafetyRange(SafetyRange safetyRange) {
+        this.safetyRange = safetyRange;
+        return this;
+    }
+
 }
