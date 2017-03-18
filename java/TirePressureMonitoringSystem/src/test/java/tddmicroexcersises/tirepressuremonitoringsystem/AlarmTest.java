@@ -11,6 +11,7 @@ import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.BDDMockito.given;
+import static tddmicroexercises.tirepressuremonitoringsystem.AlarmBuilder.anAlarm;
 
 /**
  * Created by pj on 15/01/17.
@@ -36,10 +37,6 @@ public class AlarmTest {
 
         alarm.check();
         assertFalse(alarm.isAlarmOn());
-    }
-
-    private Alarm anAlarm() {
-        return new Alarm(sensor, safetyRange);
     }
 
     @Test
