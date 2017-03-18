@@ -24,7 +24,7 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
-        double pressure = safetyRange.midValue();
+        double pressure = safetyRange.midThreshold();
         given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
         Alarm alarm = new Alarm(sensor, safetyRange);
@@ -33,7 +33,7 @@ public class AlarmTest {
     }
     @Test
     public void testAlarmIsOnWhenPressureIsTooHigh() {
-        double pressure = safetyRange.getHighPressureThreshold() + 1;
+        double pressure = safetyRange.highThreshold() + 1;
         given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
         Alarm alarm = new Alarm(sensor, safetyRange);
@@ -42,7 +42,7 @@ public class AlarmTest {
     }
     @Test
     public void testAlarmIsOnWhenPressureIsTooLow() {
-        double pressure = safetyRange.getLowPressureThreshold() - 1;
+        double pressure = safetyRange.lowThreshold() - 1;
         given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
         Alarm alarm = new Alarm(sensor, safetyRange);
@@ -51,7 +51,7 @@ public class AlarmTest {
     }
     @Test
     public void testAlarmIsOnWhenPressureIsExactlyHighThreshold() {
-        double pressure = safetyRange.getHighPressureThreshold();
+        double pressure = safetyRange.highThreshold();
         given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
         Alarm alarm = new Alarm(sensor, safetyRange);
@@ -60,7 +60,7 @@ public class AlarmTest {
     }
     @Test
     public void testAlarmIsOnWhenPressureIsExactlyLowThreshold() {
-        double pressure = safetyRange.getLowPressureThreshold();
+        double pressure = safetyRange.lowThreshold();
         given(sensor.popNextPressurePsiValue()).willReturn(pressure);
 
         Alarm alarm = new Alarm(sensor, safetyRange);

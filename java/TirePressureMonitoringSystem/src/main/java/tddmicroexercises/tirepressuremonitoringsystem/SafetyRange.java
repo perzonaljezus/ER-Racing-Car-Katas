@@ -7,15 +7,15 @@ public class SafetyRange {
     private final double lowPressureThreshold = 17. ;
     private final double highPressureThreshold = 21. ;
 
-    public double midValue() {
+    public double midThreshold() {
         return (lowPressureThreshold + highPressureThreshold) / 2;
     }
 
-    public double getLowPressureThreshold() {
+    public double lowThreshold() {
         return lowPressureThreshold;
     }
 
-    public double getHighPressureThreshold() {
+    public double highThreshold() {
         return highPressureThreshold;
     }
 

@@ -16,7 +16,7 @@ public class Alarm
     {
         double psiPressureValue = sensor.popNextPressurePsiValue();
 
-        if (psiPressureValue < safetyRange.getLowPressureThreshold() || safetyRange.getHighPressureThreshold() < psiPressureValue)
+        if (psiPressureValue < safetyRange.lowThreshold() || safetyRange.highThreshold() < psiPressureValue)
         {
             alarmOn = true;
         }
