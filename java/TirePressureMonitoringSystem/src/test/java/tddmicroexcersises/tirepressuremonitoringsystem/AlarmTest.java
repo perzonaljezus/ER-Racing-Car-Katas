@@ -19,15 +19,10 @@ public class AlarmTest {
     @Mock
     private Sensor sensor;
 
-    @Mock
     private SafetyRange safetyRange = new SafetyRange();
 
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
-        given(safetyRange.midValue()).willReturn(20.);
-        given(safetyRange.getLowPressureThreshold()).willReturn(17.);
-        given(safetyRange.getHighPressureThreshold()).willReturn(21.);
-
         double okPressure = safetyRange.midValue();
         given(sensor.popNextPressurePsiValue()).willReturn(okPressure);
 
