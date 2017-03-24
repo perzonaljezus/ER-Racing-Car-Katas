@@ -30,7 +30,7 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOnWhenPressureIsOk() {
-        given(sensor.popNextPressurePsiValue()).willReturn(19.); // (high+low)/2
+        given(sensor.popNextPressurePsiValue()).willReturn((safetyRange.getHighPressureThreshold() + safetyRange.getLowPressureThreshold()) /2);
         Alarm alarm = anAlarm().
                 usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
@@ -41,7 +41,7 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOnWhenPressureIsTooHigh() {
-        given(sensor.popNextPressurePsiValue()).willReturn(22.); // high +1
+        given(sensor.popNextPressurePsiValue()).willReturn(safetyRange.getHighPressureThreshold() +1);
         Alarm alarm = anAlarm().
                 usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
@@ -52,7 +52,7 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOnWhenPressureIsTooLow() {
-        given(sensor.popNextPressurePsiValue()).willReturn(16.); // low -1
+        given(sensor.popNextPressurePsiValue()).willReturn(safetyRange.getLowPressureThreshold() -1);
         Alarm alarm = anAlarm().
                 usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
@@ -63,7 +63,7 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOnWhenPressureIsOnHighLimit() {
-        given(sensor.popNextPressurePsiValue()).willReturn(21.); // high
+        given(sensor.popNextPressurePsiValue()).willReturn(safetyRange.getHighPressureThreshold());
         Alarm alarm = anAlarm().
                 usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
@@ -78,7 +78,7 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOnWhenPressureIsOnLowLimit() {
-        given(sensor.popNextPressurePsiValue()).willReturn(17.); // low
+        given(sensor.popNextPressurePsiValue()).willReturn(safetyRange.getLowPressureThreshold());
         Alarm alarm = anAlarm().
                 usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
