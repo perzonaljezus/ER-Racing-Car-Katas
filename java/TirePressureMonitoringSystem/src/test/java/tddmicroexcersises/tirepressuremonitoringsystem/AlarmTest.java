@@ -10,6 +10,7 @@ import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
 
 /**
  * Created by pj on 15/01/17.
@@ -61,6 +62,7 @@ public class AlarmTest {
     @Test
     public void testAlarmIsOnWhenPressureIsOnHighLimit() {
         given(sensor.popNextPressurePsiValue()).willReturn(21.); // high
+        SafetyRange safetyRange = new SafetyRange(17. , 21. );
         Alarm alarm = anAlarm().
                 usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
@@ -75,11 +77,36 @@ public class AlarmTest {
 
     private class AlarmBuilder {
         private Sensor sensor;
+        private SafetyRange safetyRange;
 
         public AlarmBuilder usingSensor(Sensor sensor) {
             this.sensor = sensor;
             return this;
         }
+
+        public AlarmBuilder andWithSafetyRange(SafetyRange safetyRange) {
+            this.safetyRange = safetyRange;
+            return this;
+        }
+    }
+
+    private class SafetyRange {
+        private double lowPressureThreshold;
+        private double highPressureThreshold;
+
+        public SafetyRange(double lowPressureThreshold, double highPressureThreshold) {
+            this.lowPressureThreshold = lowPressureThreshold;
+            this.highPressureThreshold = highPressureThreshold;
+        }
+
+        public double getLowPressureThreshold() {
+            return lowPressureThreshold;
+        }
+
+        public double getHighPressureThreshold() {
+            return highPressureThreshold;
+        }
+
     }
 
     // test alarm is off when pressure on low limit
