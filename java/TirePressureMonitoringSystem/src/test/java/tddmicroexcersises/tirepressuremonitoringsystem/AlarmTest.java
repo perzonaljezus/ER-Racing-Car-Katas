@@ -60,12 +60,16 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOnWhenPressureIsOnHighLimit() {
-        alarm = anAlarm().
+        Alarm alarm = anAlarm().
                 usingSensor(new SensorThatProbes(21)).
                 andWithSafetyRange(safetyRange).
                 build();
         alarm.check();
         assertTrue(alarm.isAlarmOn());
+    }
+
+    private AlarmBuilder anAlarm() {
+        return new AlarmBuilder();
     }
 
 
