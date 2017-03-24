@@ -11,6 +11,10 @@ class AlarmBuilder {
     private Sensor sensor;
     private SafetyRange safetyRange;
 
+    public static AlarmBuilder anAlarm() {
+        return new AlarmBuilder();
+    }
+
     public AlarmBuilder usingSensor(Sensor sensor) {
         this.sensor = sensor;
         return this;
