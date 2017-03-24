@@ -12,9 +12,10 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
-        Alarm alarm = new Alarm();
+        SensorMock sensor = new SensorMock(pressure);
+        Alarm alarm = new Alarm(sensor);
         alarm.check();
-        assertTrue(alarm.isAlarmOn());
+        assertFalse(alarm.isAlarmOn());
     }
 
     // test alarm is on when pressure is too high
