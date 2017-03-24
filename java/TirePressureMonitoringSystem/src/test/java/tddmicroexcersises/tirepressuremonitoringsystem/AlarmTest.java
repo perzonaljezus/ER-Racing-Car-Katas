@@ -11,13 +11,12 @@ import static org.junit.Assert.assertTrue;
 public class AlarmTest {
 
     @Test
-    public void testAlarm() {
+    public void testAlarmIsOffWhenPressureIsOk() {
         Alarm alarm = new Alarm();
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
 
-    // test alarm is off when pressure is ok
     // test alarm is on when pressure is too high
     // test alarm is on when pressure is too low
     // test alarm is off when pressure on high limit
