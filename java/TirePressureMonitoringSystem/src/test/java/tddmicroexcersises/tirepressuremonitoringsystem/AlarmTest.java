@@ -103,5 +103,15 @@ public class AlarmTest {
         }
     }
 
-    // test alarm is off when pressure on low limit
+    @Test
+    public void testAlarmIsOnWhenPressureIsOnLowLimit() {
+        given(sensor.popNextPressurePsiValue()).willReturn(17.); // low
+        SafetyRange safetyRange = new SafetyRange(17. , 21. );
+        Alarm alarm = anAlarm().
+                usingSensor(sensor).
+                andWithSafetyRange(safetyRange).
+                build();
+        alarm.check();
+        assertFalse(alarm.isAlarmOn());
+    }
 }
