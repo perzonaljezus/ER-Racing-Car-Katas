@@ -42,7 +42,15 @@ public class AlarmTest {
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
-    // test alarm is on when pressure is too low
+
+    @Test
+    public void testAlarmIsOnWhenPressureIsTooLow() {
+        given(sensor.popNextPressurePsiValue()).willReturn(16); // low -1
+        Alarm alarm = new Alarm();
+        alarm.check();
+        assertTrue(alarm.isAlarmOn());
+    }
+
     // test alarm is off when pressure on high limit
     // test alarm is off when pressure on low limit
 }
