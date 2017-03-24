@@ -30,8 +30,7 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOnWhenPressureIsOk() {
-        given(sensor.popNextPressurePsiValue()).willReturn(19.); // low
-        SafetyRange safetyRange = new SafetyRange(17. , 21. );
+        given(sensor.popNextPressurePsiValue()).willReturn(19.); // (high+low)/2
         Alarm alarm = anAlarm().
                 usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
@@ -42,12 +41,11 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOnWhenPressureIsTooHigh() {
-        Sensor sensor = new Sensor() {
-            public double popNextPressurePsiValue(){
-                return 22; // high +1
-            }
-        };
-        Alarm alarm = new Alarm(sensor, safetyRange);
+        given(sensor.popNextPressurePsiValue()).willReturn(22.); // high +1
+        Alarm alarm = anAlarm().
+                usingSensor(sensor).
+                andWithSafetyRange(safetyRange).
+                build();
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
@@ -63,7 +61,6 @@ public class AlarmTest {
     @Test
     public void testAlarmIsOnWhenPressureIsOnHighLimit() {
         given(sensor.popNextPressurePsiValue()).willReturn(21.); // high
-        SafetyRange safetyRange = new SafetyRange(17. , 21. );
         Alarm alarm = anAlarm().
                 usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
@@ -99,7 +96,6 @@ public class AlarmTest {
     @Test
     public void testAlarmIsOnWhenPressureIsOnLowLimit() {
         given(sensor.popNextPressurePsiValue()).willReturn(17.); // low
-        SafetyRange safetyRange = new SafetyRange(17. , 21. );
         Alarm alarm = anAlarm().
                 usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
