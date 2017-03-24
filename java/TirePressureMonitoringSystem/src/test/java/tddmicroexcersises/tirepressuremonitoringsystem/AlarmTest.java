@@ -1,10 +1,12 @@
 package tddmicroexcersises.tirepressuremonitoringsystem;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
+import tddmicroexercises.tirepressuremonitoringsystem.SafetyRange;
 import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 
 import static junit.framework.TestCase.assertTrue;
@@ -18,6 +20,13 @@ import static org.mockito.BDDMockito.given;
 public class AlarmTest {
     @Mock
     private Sensor sensor;
+    private SafetyRange safetyRange;
+
+
+    @Before
+    public void setup() {
+        this.safetyRange = new SafetyRange(17. , 21.);
+    }
 
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
@@ -45,7 +54,7 @@ public class AlarmTest {
                 return 22; // high +1
             }
         };
-        Alarm alarm = new Alarm(sensor);
+        Alarm alarm = new Alarm(sensor, safetyRange);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
@@ -53,7 +62,7 @@ public class AlarmTest {
     @Test
     public void testAlarmIsOnWhenPressureIsTooLow() {
         given(sensor.popNextPressurePsiValue()).willReturn(16.); // low -1
-        Alarm alarm = new Alarm(sensor);
+        Alarm alarm = new Alarm(sensor, safetyRange);
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
@@ -67,7 +76,7 @@ public class AlarmTest {
                 andWithSafetyRange(safetyRange).
                 build();
         alarm.check();
-        assertTrue(alarm.isAlarmOn());
+        assertFalse(alarm.isAlarmOn());
     }
 
     private AlarmBuilder anAlarm() {
@@ -89,28 +98,9 @@ public class AlarmTest {
         }
 
         public Alarm build() {
-            Alarm alarm = new Alarm(sensor, safetyRange);
+            Alarm alarm = new Alarm(this.sensor, this.safetyRange);
             return alarm;
         }
-    }
-
-    private class SafetyRange {
-        private double lowPressureThreshold;
-        private double highPressureThreshold;
-
-        public SafetyRange(double lowPressureThreshold, double highPressureThreshold) {
-            this.lowPressureThreshold = lowPressureThreshold;
-            this.highPressureThreshold = highPressureThreshold;
-        }
-
-        public double getLowPressureThreshold() {
-            return lowPressureThreshold;
-        }
-
-        public double getHighPressureThreshold() {
-            return highPressureThreshold;
-        }
-
     }
 
     // test alarm is off when pressure on low limit
