@@ -58,6 +58,16 @@ public class AlarmTest {
         assertTrue(alarm.isAlarmOn());
     }
 
-    // test alarm is off when pressure on high limit
+    @Test
+    public void testAlarmIsOnWhenPressureIsOnHighLimit() {
+        alarm = anAlarm().
+                usingSensor(new SensorThatProbes(21)).
+                andWithSafetyRange(safetyRange).
+                build();
+        alarm.check();
+        assertTrue(alarm.isAlarmOn());
+    }
+
+
     // test alarm is off when pressure on low limit
 }
