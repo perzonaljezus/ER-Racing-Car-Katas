@@ -29,22 +29,15 @@ public class AlarmTest {
     }
 
     @Test
-    public void testAlarmIsOffWhenPressureIsOk() {
-        double pressure = 19; // (high + low) / 2
-        FakeAlarm alarm = new FakeAlarm(pressure);
+    public void testAlarmIsOnWhenPressureIsOk() {
+        given(sensor.popNextPressurePsiValue()).willReturn(19.); // low
+        SafetyRange safetyRange = new SafetyRange(17. , 21. );
+        Alarm alarm = anAlarm().
+                usingSensor(sensor).
+                andWithSafetyRange(safetyRange).
+                build();
         alarm.check();
         assertFalse(alarm.isAlarmOn());
-    }
-
-    private class FakeAlarm extends Alarm {
-        private double pressure;
-
-        public FakeAlarm(double pressure) {
-            this.pressure = pressure;
-        }
-        protected double pressureValue() {
-            return pressure;
-        }
     }
 
     @Test

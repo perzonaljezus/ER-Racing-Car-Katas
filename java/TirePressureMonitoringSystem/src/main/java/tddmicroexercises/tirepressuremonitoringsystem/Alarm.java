@@ -13,10 +13,6 @@ public class Alarm
         this.safetyRange = safetyRange;
     }
 
-    public Alarm() {
-        this.safetyRange = new SafetyRange(17. , 21. );
-    }
-
     public void check()
     {
         double psiPressureValue = pressureValue();
