@@ -60,8 +60,9 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOnWhenPressureIsOnHighLimit() {
+        given(sensor.popNextPressurePsiValue()).willReturn(21.); // high
         Alarm alarm = anAlarm().
-                usingSensor(new SensorThatProbes(21)).
+                usingSensor(sensor).
                 andWithSafetyRange(safetyRange).
                 build();
         alarm.check();
@@ -72,6 +73,14 @@ public class AlarmTest {
         return new AlarmBuilder();
     }
 
+    private class AlarmBuilder {
+        private Sensor sensor;
+
+        public AlarmBuilder usingSensor(Sensor sensor) {
+            this.sensor = sensor;
+            return this;
+        }
+    }
 
     // test alarm is off when pressure on low limit
 }
