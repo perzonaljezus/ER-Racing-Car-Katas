@@ -2,7 +2,9 @@ package tddmicroexcersises.tirepressuremonitoringsystem;
 
 import org.junit.Test;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
+import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 /**
@@ -12,7 +14,7 @@ public class AlarmTest {
 
     @Test
     public void testAlarmIsOffWhenPressureIsOk() {
-        double pressure = 19; // (high + low) 2
+        double pressure = 19; // (high + low) / 2
         FakeAlarm alarm = new FakeAlarm(pressure);
         alarm.check();
         assertFalse(alarm.isAlarmOn());
@@ -29,8 +31,17 @@ public class AlarmTest {
         }
     }
 
-
-    // test alarm is on when pressure is too high
+    @Test
+    public void testAlarmIsOnWhenPressureIsTooHigh() {
+        Sensor sensor = new Sensor() {
+            public double popNextPressurePsiValue(){
+                return 22; // high +1
+            }
+        };
+        Alarm alarm = new Alarm(sensor);
+        alarm.check();
+        assertTrue(alarm.isAlarmOn());
+    }
     // test alarm is on when pressure is too low
     // test alarm is off when pressure on high limit
     // test alarm is off when pressure on low limit
