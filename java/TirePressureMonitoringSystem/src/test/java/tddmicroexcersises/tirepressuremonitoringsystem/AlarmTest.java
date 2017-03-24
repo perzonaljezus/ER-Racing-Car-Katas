@@ -10,7 +10,6 @@ import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mock;
 
 /**
  * Created by pj on 15/01/17.
@@ -87,6 +86,11 @@ public class AlarmTest {
         public AlarmBuilder andWithSafetyRange(SafetyRange safetyRange) {
             this.safetyRange = safetyRange;
             return this;
+        }
+
+        public Alarm build() {
+            Alarm alarm = new Alarm(sensor, safetyRange);
+            return alarm;
         }
     }
 
