@@ -53,7 +53,10 @@ public class AlarmTest {
     @Test
     public void testAlarmIsOnWhenPressureIsTooLow() {
         given(sensor.popNextPressurePsiValue()).willReturn(16.); // low -1
-        Alarm alarm = new Alarm(sensor, safetyRange);
+        Alarm alarm = anAlarm().
+                usingSensor(sensor).
+                andWithSafetyRange(safetyRange).
+                build();
         alarm.check();
         assertTrue(alarm.isAlarmOn());
     }
