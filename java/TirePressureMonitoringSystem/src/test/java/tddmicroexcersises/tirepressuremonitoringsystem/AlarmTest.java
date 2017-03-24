@@ -24,6 +24,9 @@ public class AlarmTest {
         public FakeAlarm(double pressure) {
             this.pressure = pressure;
         }
+        protected double pressureValue() {
+            return pressure;
+        }
     }
 
 
