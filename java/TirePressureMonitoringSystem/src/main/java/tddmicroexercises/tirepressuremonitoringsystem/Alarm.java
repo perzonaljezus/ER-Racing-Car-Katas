@@ -1,16 +1,16 @@
 package tddmicroexercises.tirepressuremonitoringsystem;
 
-import tddmicroexercises.tirepressuremonitoringsystem.safetyRange.SafetyRangeWetTire;
+import tddmicroexercises.tirepressuremonitoringsystem.safetyRange.SafetyRange;
 import tddmicroexercises.tirepressuremonitoringsystem.sensor.TelemeterySensor;
 
-public class AlarmWetTire
+public class Alarm
 {
     private TelemeterySensor sensor;
-    private SafetyRangeWetTire safetyRange;
+    private SafetyRange safetyRange;
 
     private boolean alarmOn = false;
 
-    public AlarmWetTire(TelemeterySensor sensor, SafetyRangeWetTire safetyRange) {
+    public Alarm(TelemeterySensor sensor, SafetyRange safetyRange) {
 
         this.sensor = sensor;
         this.safetyRange = safetyRange;
