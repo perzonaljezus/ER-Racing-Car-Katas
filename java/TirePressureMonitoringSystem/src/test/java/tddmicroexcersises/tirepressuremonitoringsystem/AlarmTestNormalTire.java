@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import tddmicroexercises.tirepressuremonitoringsystem.AlarmNormalTire;
 import tddmicroexercises.tirepressuremonitoringsystem.SafetyRangeNormalTire;
-import tddmicroexercises.tirepressuremonitoringsystem.legacy.Sensor;
+import tddmicroexercises.tirepressuremonitoringsystem.SensorNormalTire;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
@@ -20,7 +20,7 @@ import static tddmicroexcersises.tirepressuremonitoringsystem.AlarmBuilderNormal
 @RunWith(MockitoJUnitRunner.class)
 public class AlarmTestNormalTire {
     @Mock
-    private Sensor sensor;
+    private SensorNormalTire sensor;
     private SafetyRangeNormalTire safetyRange;
     private AlarmNormalTire alarm;
 
