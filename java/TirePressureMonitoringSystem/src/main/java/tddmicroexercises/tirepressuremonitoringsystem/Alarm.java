@@ -1,5 +1,7 @@
 package tddmicroexercises.tirepressuremonitoringsystem;
 
+import tddmicroexercises.tirepressuremonitoringsystem.legacy.Sensor;
+
 public class Alarm
 {
     private Sensor sensor;

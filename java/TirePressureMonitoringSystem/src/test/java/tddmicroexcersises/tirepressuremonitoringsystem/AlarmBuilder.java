@@ -2,7 +2,7 @@ package tddmicroexcersises.tirepressuremonitoringsystem;
 
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
 import tddmicroexercises.tirepressuremonitoringsystem.SafetyRange;
-import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
+import tddmicroexercises.tirepressuremonitoringsystem.legacy.Sensor;
 
 /**
  * Created by pj on 24/03/2017.
