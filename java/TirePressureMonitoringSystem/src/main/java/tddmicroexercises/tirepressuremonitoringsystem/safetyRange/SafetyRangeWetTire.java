@@ -3,7 +3,7 @@ package tddmicroexercises.tirepressuremonitoringsystem.safetyRange;
 /**
  * Created by pj on 24/03/2017.
  */
-public class SafetyRangeWetTire {
+public class SafetyRangeWetTire implements SafetyRange {
     private double lowPressureThreshold;
     private double highPressureThreshold;
 

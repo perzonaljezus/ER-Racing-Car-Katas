@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
 import tddmicroexercises.tirepressuremonitoringsystem.safetyRange.SafetyRange;
+import tddmicroexercises.tirepressuremonitoringsystem.safetyRange.SafetyRangeNormalTire;
 import tddmicroexercises.tirepressuremonitoringsystem.sensor.TelemeterySensor;
 
 import static junit.framework.TestCase.assertTrue;
@@ -18,7 +19,7 @@ import static tddmicroexcersises.tirepressuremonitoringsystem.AlarmBuilder.anAla
  * Created by pj on 15/01/17.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class AlarmTest {
+public class AlarmTestNormalTire {
     @Mock
     private TelemeterySensor sensor;
     private SafetyRange safetyRange;
@@ -28,7 +29,7 @@ public class AlarmTest {
 
     @Before
     public void setup() {
-        this.safetyRange = new SafetyRange();
+        this.safetyRange = new SafetyRangeNormalTire();
     }
 
     @Test
