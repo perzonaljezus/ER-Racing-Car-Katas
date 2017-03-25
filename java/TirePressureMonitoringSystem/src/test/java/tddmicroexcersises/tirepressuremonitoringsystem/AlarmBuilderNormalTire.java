@@ -1,6 +1,7 @@
 package tddmicroexcersises.tirepressuremonitoringsystem;
 
 import tddmicroexercises.tirepressuremonitoringsystem.*;
+import tddmicroexercises.tirepressuremonitoringsystem.sensor.SensorNormalTire;
 
 /**
  * Created by pj on 24/03/2017.

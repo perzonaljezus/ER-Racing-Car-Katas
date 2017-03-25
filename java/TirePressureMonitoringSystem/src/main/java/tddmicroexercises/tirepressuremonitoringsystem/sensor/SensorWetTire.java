@@ -1,20 +1,12 @@
-package tddmicroexercises.tirepressuremonitoringsystem;
+package tddmicroexercises.tirepressuremonitoringsystem.sensor;
 
 import tddmicroexercises.tirepressuremonitoringsystem.legacy.Sensor;
 
 import java.util.Random;
 
-public class SensorWetTire extends Sensor
+public class SensorWetTire extends Sensor implements TelemeterySensor
 {
-    public static final double OFFSET = 14;
-
-    public double popNextPressurePsiValue()
-    {
-        double pressureTelemetryValue;
-        pressureTelemetryValue = samplePressure();
-
-        return OFFSET + pressureTelemetryValue;
-    }
+    public final double OFFSET = 14;
 
     private static double samplePressure()
     {
