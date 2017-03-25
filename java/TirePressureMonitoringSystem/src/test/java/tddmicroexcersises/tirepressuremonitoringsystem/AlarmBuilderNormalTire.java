@@ -1,21 +1,19 @@
 package tddmicroexcersises.tirepressuremonitoringsystem;
 
-import tddmicroexercises.tirepressuremonitoringsystem.AlarmNormalTire;
-import tddmicroexercises.tirepressuremonitoringsystem.SafetyRangeNormalTire;
-import tddmicroexercises.tirepressuremonitoringsystem.legacy.Sensor;
+import tddmicroexercises.tirepressuremonitoringsystem.*;
 
 /**
  * Created by pj on 24/03/2017.
  */
 class AlarmBuilderNormalTire {
-    private Sensor sensor;
+    private SensorNormalTire sensor;
     private SafetyRangeNormalTire safetyRange;
 
     public static AlarmBuilderNormalTire anAlarm() {
         return new AlarmBuilderNormalTire();
     }
 
-    public AlarmBuilderNormalTire usingSensor(Sensor sensor) {
+    public AlarmBuilderNormalTire usingSensor(SensorNormalTire sensor) {
         this.sensor = sensor;
         return this;
     }

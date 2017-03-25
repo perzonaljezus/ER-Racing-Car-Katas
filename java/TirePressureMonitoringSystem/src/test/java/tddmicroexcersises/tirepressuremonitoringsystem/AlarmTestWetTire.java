@@ -5,30 +5,30 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import tddmicroexercises.tirepressuremonitoringsystem.AlarmNormalTire;
-import tddmicroexercises.tirepressuremonitoringsystem.SafetyRangeNormalTire;
-import tddmicroexercises.tirepressuremonitoringsystem.SensorNormalTire;
+import tddmicroexercises.tirepressuremonitoringsystem.AlarmWetTire;
+import tddmicroexercises.tirepressuremonitoringsystem.SafetyRangeWetTire;
+import tddmicroexercises.tirepressuremonitoringsystem.SensorWetTire;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.BDDMockito.given;
-import static tddmicroexcersises.tirepressuremonitoringsystem.AlarmBuilderNormalTire.anAlarm;
+import static tddmicroexcersises.tirepressuremonitoringsystem.AlarmBuilderWetTire.anAlarm;
 
 /**
  * Created by pj on 15/01/17.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class AlarmTestNormalTire {
+public class AlarmTestWetTire {
     @Mock
-    private SensorNormalTire sensor;
-    private SafetyRangeNormalTire safetyRange;
-    private AlarmNormalTire alarm;
+    private SensorWetTire sensor;
+    private SafetyRangeWetTire safetyRange;
+    private AlarmWetTire alarm;
 
 
 
     @Before
     public void setup() {
-        this.safetyRange = new SafetyRangeNormalTire();
+        this.safetyRange = new SafetyRangeWetTire();
     }
 
     @Test

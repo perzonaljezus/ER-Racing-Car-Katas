@@ -1,8 +1,10 @@
 package tddmicroexercises.tirepressuremonitoringsystem;
 
+import tddmicroexercises.tirepressuremonitoringsystem.legacy.Sensor;
+
 import java.util.Random;
 
-public class SensorWetTire
+public class SensorWetTire extends Sensor
 {
     public static final double OFFSET = 14;
 
