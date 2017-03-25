@@ -1,7 +1,7 @@
 package tddmicroexcersises.tirepressuremonitoringsystem;
 
 import tddmicroexercises.tirepressuremonitoringsystem.AlarmWetTire;
-import tddmicroexercises.tirepressuremonitoringsystem.SafetyRangeWetTire;
+import tddmicroexercises.tirepressuremonitoringsystem.safetyRange.SafetyRangeWetTire;
 import tddmicroexercises.tirepressuremonitoringsystem.sensor.TelemeterySensor;
 
 /**

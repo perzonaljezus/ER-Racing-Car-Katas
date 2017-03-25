@@ -1,6 +1,7 @@
 package tddmicroexercises.tirepressuremonitoringsystem;
 
 import tddmicroexercises.tirepressuremonitoringsystem.legacy.Sensor;
+import tddmicroexercises.tirepressuremonitoringsystem.safetyRange.SafetyRangeNormalTire;
 
 public class AlarmNormalTire
 {

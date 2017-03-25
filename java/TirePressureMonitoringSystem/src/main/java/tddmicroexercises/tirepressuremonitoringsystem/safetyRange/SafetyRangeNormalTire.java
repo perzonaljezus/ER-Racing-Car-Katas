@@ -1,9 +1,9 @@
-package tddmicroexercises.tirepressuremonitoringsystem;
+package tddmicroexercises.tirepressuremonitoringsystem.safetyRange;
 
 /**
  * Created by pj on 24/03/2017.
  */
-public class SafetyRangeNormalTire {
+public class SafetyRangeNormalTire implements SafetyRange {
     private double lowPressureThreshold;
     private double highPressureThreshold;
 
@@ -12,10 +12,12 @@ public class SafetyRangeNormalTire {
         this.highPressureThreshold = 21. ;
     }
 
+    @Override
     public double getLowPressureThreshold() {
         return lowPressureThreshold;
     }
 
+    @Override
     public double getHighPressureThreshold() {
         return highPressureThreshold;
     }

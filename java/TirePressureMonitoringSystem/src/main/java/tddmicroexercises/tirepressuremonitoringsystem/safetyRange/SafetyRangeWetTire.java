@@ -1,4 +1,4 @@
-package tddmicroexercises.tirepressuremonitoringsystem;
+package tddmicroexercises.tirepressuremonitoringsystem.safetyRange;
 
 /**
  * Created by pj on 24/03/2017.

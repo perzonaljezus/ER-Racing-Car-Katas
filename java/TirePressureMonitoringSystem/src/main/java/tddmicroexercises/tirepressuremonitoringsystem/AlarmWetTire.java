@@ -1,5 +1,6 @@
 package tddmicroexercises.tirepressuremonitoringsystem;
 
+import tddmicroexercises.tirepressuremonitoringsystem.safetyRange.SafetyRangeWetTire;
 import tddmicroexercises.tirepressuremonitoringsystem.sensor.TelemeterySensor;
 
 public class AlarmWetTire
