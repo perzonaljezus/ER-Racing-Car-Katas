@@ -20,14 +20,14 @@ public class Alarm
     {
         double psiPressureValue = pressureValue();
 
-        if (isNotInSafetyRange(psiPressureValue))
+        if (!isInSafetyRange(psiPressureValue))
         {
             alarmOn = true;
         }
     }
 
-    protected boolean isNotInSafetyRange(double psiPressureValue) {
-        return psiPressureValue < safetyRange.getLowPressureThreshold() || safetyRange.getHighPressureThreshold() < psiPressureValue;
+    protected boolean isInSafetyRange(double psiPressureValue) {
+        return psiPressureValue >= safetyRange.getLowPressureThreshold() && safetyRange.getHighPressureThreshold() >= psiPressureValue;
     }
 
     protected double pressureValue() {
